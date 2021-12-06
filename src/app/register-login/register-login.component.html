@@ -1,0 +1,66 @@
+<div class="div-Header">
+    <mat-card class="card-ex">
+        <mat-card-content>
+            <mat-tab-group>
+                <mat-tab label="Login">
+                    <div style="padding-top: 4%;">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input matInput name="email" [formControl]="email" >
+                            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                      <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput name="password" [formControl]="password">
+                        <mat-error *ngIf="password.errors">{{getPwdErrorMessage()}}</mat-error>
+                        <mat-icon matSuffix>visibility_off</mat-icon>
+                      </mat-form-field>
+                    </div>
+                    <div style="padding-top: 4%;">
+                        <button mat-raised-button color="primary">Login</button>
+                    </div>
+                    <br/>
+                    <div>
+                        <button mat-raised-button class="google-sign-in"style="background-color:darkcyan;" (click)="signInHandler()">
+                             <mat-icon style="color:whitesmoke;padding-bottom: 3%;padding-right: 3%;">Google</mat-icon><span style="color: whitesmoke;">Sign in with Google</span></button>
+                    </div>
+                    <br/>
+                </mat-tab>
+                <mat-tab label="Sign Up">
+                        <div style="padding-top: 4%;">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Email</mat-label>
+                                <input matInput name="signupEmail" [formControl]="signupEmail" >
+                                <mat-error *ngIf="signupEmail.invalid">{{getSignUpErrorMessage()}}</mat-error>
+                                <mat-icon matSuffix>email</mat-icon>
+                            </mat-form-field>
+                        </div>
+                        <div>
+                          <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Password</mat-label>
+                            <input matInput minlength="6" name="signuppassword" [formControl]="signuppassword">
+                            <mat-error *ngIf="signuppassword.errors">{{getPwdSignUpError()}}</mat-error>
+                            <mat-icon matSuffix>visibility_off</mat-icon>
+                          </mat-form-field>
+                        </div>
+                        <div style="padding-top: 4%;">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                              <mat-label>Confirm Password</mat-label>
+                              <input matInput minlength="6" name="confirmPassword" [formControl]="confirmPassword">
+                              <mat-error *ngIf="confirmPassword.errors">{{getconfirmSignUpError()}}</mat-error>
+                              <mat-icon matSuffix>visibility_off</mat-icon>
+                            </mat-form-field>
+                          </div>
+                        <div style="padding-top: 4%;">
+                            <button mat-raised-button color="primary" type="submit" (click)="onSignUp()">Sign Up</button>
+                        </div>
+                        <div class="error">{{errorMessage}}</div>
+                        <br/>
+                </mat-tab>
+              </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+    </div>
